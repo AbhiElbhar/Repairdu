@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="container sm-4">
     <h1 class="text-center">Add About-Us</h1>
     <form action="{{route('about.store')}}" class="action" method="POST" enctype="multipart/form-data">
