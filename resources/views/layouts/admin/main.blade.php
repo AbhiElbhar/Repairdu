@@ -41,12 +41,12 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             @include('layouts.admin.sidebar')
         </aside>
-        
+
         <div class="content-wrapper">
             @yield('content')
         </div>
-        
-        <footer class="main-footer">
+      
+        <footer class="main-footer bg-dark">
             @include('layouts.admin.footer')
         </footer>
         

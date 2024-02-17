@@ -3,8 +3,12 @@
         <div class="col-lg-2 col-md-3 col-4">
             <!-- logo area start -->
             <a href="index.html" class="thumbnail">
-                <img class="active-light" src="assets/images/logo/logo-1.png" alt="axela-logo">
-                <img class="active-dark" src="assets/images/logo/logo-2.svg" alt="axela-logo">
+                @foreach ($details as $item)
+
+                <img class="active-light" src="{{asset('Admin/images/'.$item->logo)}}" alt="axela-logo">
+                <img class="active-dark" src="{{asset('Admin/images/'.$item->logo)}}" alt="axela-logo">
+                                    
+                @endforeach
             </a>
             <!-- logo area end -->
         </div>
@@ -12,30 +16,8 @@
             <div class="main-header">
                 <nav class="main-nav">
                     <ul class="mainmenu">
-                        <li class="has-droupdown">
-                            <a href="#">Home</a>
-                            <ul class="submenu home-mega">
-                                <li class="m-1">
-                                    <ul class="multiple">
-                                        <li><a class="multi" href="index.html">Creative Agency</a></li>
-                                        <li><a class="multi" href="index-two.html">Corporate Agency</a></li>
-                                        <li><a class="multi" href="index-three.html">StartUp Agency</a></li>
-                                        <li><a class="multi" href="index-four.html">Digital Agency</a></li>
-                                        <li><a class="multi" href="index-five.html">Portfolio Agency</a></li>
-                                        <li><a class="multi" href="index-six.html">Full Screen Slider</a></li>
-                                        <li><a class="multi" href="index-seven.html">Portfolio Showcase</a></li>
-                                    </ul>
-                                </li>
-                                <li class="m-1">
-                                    <ul class="single">
-                                        <li><a class="multi" href="one-page-one.html">Creative OnePage</a></li>
-                                        <li><a class="multi" href="one-page-two.html">Corporate OnePage</a></li>
-                                        <li><a class="multi" href="one-page-three.html">StartUp OnePage</a></li>
-                                        <li><a class="multi" href="one-page-four.html">Digital OnePage</a></li>
-                                        <li><a class="multi" href="one-page-five.html">Portfolio OnePage</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <li>
+                            <a href="{{route('index')}}">Home</a>
                         </li>
                         <li>
                             <a href="about.html">About</a>

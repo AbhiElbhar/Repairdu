@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\About;
+use App\Models\Slider;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class SliderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $abouts= About::Paginate(1);
+        $slider= Slider::Paginate(2);
 
-        return view('Admin.About.edit',compact('abouts'));
+        return view('Admin.Slider.index',compact('slider'));
     }
 
     /**
@@ -27,7 +27,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        return view('admin.about.create');
+        return view('Admin.Slider.create');
     }
 
     /**
@@ -40,37 +40,31 @@ class AboutController extends Controller
     {
         $request->validate([
             'title'=>'required|max:255',
-            'mobile_no'=>'required|digits:10',
+            'url'=>'max:255',
             'description'=>'required',
-            'meta_title'=>'required|max:255',
-            'meta_keyword'=>'required',
-            'meta_description'=>'required',
             'image'=>'required|mimes:jpg,png,webp',
         ]);
 
         $image1=time().'.'.$request->image->extension();
         $request->image->move(public_path('admin/images'),$image1);
 
-        about::create([
+        Slider::create([
             'title'=>$request->title,
-            'mobile_no'=>$request->mobile_no,
+            'url'=>$request->url,
             'description'=>$request->description,
-            'meta_title'=>$request->meta_title,
-            'meta_keyword'=>$request->meta_keyword,
-            'meta_description'=>$request->meta_description,
-            'image'=>$image1,
+            'image'=>$image1
         ]);
 
-        return redirect()->route('about.index');
+        return redirect()->route('slider.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function show(About $about)
+    public function show(Slider $slider)
     {
         //
     }
@@ -78,42 +72,41 @@ class AboutController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function edit(About $about)
+    public function edit(Slider $slider)
     {
-        //
+        if (empty($slider)) {
+            return redirect()->route('slider.index');
+        }
+        else {
+            return view ('Admin.Slider.edit',compact('slider'));
+        }
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, About $about)
+    public function update(Request $request, Slider $slider)
     {
         $request->validate([
             'title'=>'required|max:255',
-            'mobile_no'=>'required|digits:10',
+            'url'=>'max:255',
             'description'=>'required',
-            'meta_title'=>'required|max:255',
-            'meta_keyword'=>'required',
-            'meta_description'=>'required',
             'image'=>'mimes:jpg,png,webp',
             'old_image'=>'required',
         ]);
         if (empty($request->image)) {
 
-            $about->update([
+            $slider->update([
                 'title'=>$request->title,
-                'mobile_no'=>$request->mobile_no,
+                'url'=>$request->url,
                 'description'=>$request->description,
-                'meta_title'=>$request->meta_title,
-                'meta_keyword'=>$request->meta_keyword,
-                'meta_description'=>$request->meta_description,
                 'image'=>$request->old_image
             ]);
         }
@@ -122,28 +115,27 @@ class AboutController extends Controller
         $image1=time().'.'.$request->image->extension();
         $request->image->move(public_path('admin/images'),$image1);
 
-        $about->update([
+        $slider->update([
             'title'=>$request->title,
-            'mobile_no'=>$request->mobile_no,
+            'url'=>$request->url,
             'description'=>$request->description,
-            'meta_title'=>$request->meta_title,
-            'meta_keyword'=>$request->meta_keyword,
-            'meta_description'=>$request->meta_description,
-            'image'=>$image1,
+            'image'=>$image1
         ]);
        }
 
-       return redirect()->route('about.index');
+       return redirect()->route('slider.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function destroy(About $about)
+    public function destroy(Slider $slider)
     {
-        //
+        $slider->delete();
+
+        return redirect()->route('slider.index');
     }
 }

@@ -2,21 +2,18 @@
 
 @section('content')
 
+@foreach ($slider as $item)
 
 <div class="banner-area bg_image--1 bg_image rts-section-gap">
     <div class="container shape-line">
         <div class="row align-items-start pt--100 pt_sm--50 banner-shape-red">
             <div class="col-lg-6 order-xl-1 order-md-2 order-sm-1 order-1">
                 <div class="banner-one-content-wrapper">
-                    <span class="pre-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">All In
-                        One Solution For You</span>
                     <h1 class="title-banner" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
-                        Build Your Business
-                        Easy Solution
+                        {{$item->title}}
                     </h1>
                     <p class="banner-disc" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                        Enim luctus sociis cum quam cubilia penatibus sodales neque tristique tempor dignissim
-                        aptent sollicitudin mattis integer magnis
+                        {{$item->description}}
                     </p>
                     <div class="banner-wrapper button" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
                         <a href="#" class="rts-btn btn-primary">Get Started</a>
@@ -30,15 +27,17 @@
             </div>
             <div class="col-lg-6 order-xl-2">
                 <div class="banner-shape-area-one">
-                    <img src="assets/images/banner/shape/01.png" alt="banner_shape" data-sal-delay="200" data-sal="zoom-in" data-sal-duration="1000">
+                    <img src="{{asset('Admin/images/'.$item->image)}}" alt="banner_shape" data-sal-delay="200" data-sal="zoom-in" data-sal-duration="1000">
                 </div>
                 <div class="banner-thumb-1 banner-shape-one">
-                    <img src="assets/images/banner/01.png" alt="Creative_banner" data-sal-delay="200" data-sal="zoom-in" data-sal-duration="1000">
+                    <img src="{{asset('Admin/images/'.$item->image)}}" alt="Creative_banner" data-sal-delay="200" data-sal="zoom-in" data-sal-duration="1000">
                 </div>
             </div>
         </div>
     </div>
 </div>
+                                    
+ @endforeach
 
 <!-- our working process area start -->
 <div class="rts-working-process-area rts-section-gap">

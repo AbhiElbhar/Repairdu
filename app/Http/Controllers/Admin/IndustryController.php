@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\About;
+use App\Models\industry;
 use App\Http\Controllers\Controller;
+use App\Models\industry_category;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class IndustryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $abouts= About::Paginate(1);
+        $industry= industry::Paginate(2);
 
-        return view('Admin.About.edit',compact('abouts'));
+        return view('Admin.Industry.index',compact('industry'));
     }
 
     /**
@@ -27,7 +28,9 @@ class AboutController extends Controller
      */
     public function create()
     {
-        return view('admin.about.create');
+        $category = industry_category::get();
+
+        return view('Admin.Industry.create',compact('category'));
     }
 
     /**
@@ -40,7 +43,7 @@ class AboutController extends Controller
     {
         $request->validate([
             'title'=>'required|max:255',
-            'mobile_no'=>'required|digits:10',
+            'category_id'=>'required|max:255',
             'description'=>'required',
             'meta_title'=>'required|max:255',
             'meta_keyword'=>'required',
@@ -51,9 +54,9 @@ class AboutController extends Controller
         $image1=time().'.'.$request->image->extension();
         $request->image->move(public_path('admin/images'),$image1);
 
-        about::create([
+        industry::create([
             'title'=>$request->title,
-            'mobile_no'=>$request->mobile_no,
+            'category_id'=>$request->category_id,
             'description'=>$request->description,
             'meta_title'=>$request->meta_title,
             'meta_keyword'=>$request->meta_keyword,
@@ -61,16 +64,16 @@ class AboutController extends Controller
             'image'=>$image1,
         ]);
 
-        return redirect()->route('about.index');
+        return redirect()->route('industry.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\industry  $industry
      * @return \Illuminate\Http\Response
      */
-    public function show(About $about)
+    public function show(industry $industry)
     {
         //
     }
@@ -78,26 +81,35 @@ class AboutController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\industry  $industry
      * @return \Illuminate\Http\Response
      */
-    public function edit(About $about)
+    public function edit(industry $industry)
     {
-        //
+        if (empty($industry)) {
+
+            return redirect()->route('industry.index');
+        }
+        else {
+
+            $category = industry_category::get();
+
+            return view ('Admin.Industry.edit',compact('industry'),compact('category'));
+        }
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\industry  $industry
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, About $about)
+    public function update(Request $request, industry $industry)
     {
         $request->validate([
             'title'=>'required|max:255',
-            'mobile_no'=>'required|digits:10',
+            'category_id'=>'required|max:255',
             'description'=>'required',
             'meta_title'=>'required|max:255',
             'meta_keyword'=>'required',
@@ -107,9 +119,9 @@ class AboutController extends Controller
         ]);
         if (empty($request->image)) {
 
-            $about->update([
+            $industry->update([
                 'title'=>$request->title,
-                'mobile_no'=>$request->mobile_no,
+                'category_id'=>$request->category_id,
                 'description'=>$request->description,
                 'meta_title'=>$request->meta_title,
                 'meta_keyword'=>$request->meta_keyword,
@@ -122,9 +134,9 @@ class AboutController extends Controller
         $image1=time().'.'.$request->image->extension();
         $request->image->move(public_path('admin/images'),$image1);
 
-        $about->update([
+        $industry->update([
             'title'=>$request->title,
-            'mobile_no'=>$request->mobile_no,
+            'category_id'=>$request->category_id,
             'description'=>$request->description,
             'meta_title'=>$request->meta_title,
             'meta_keyword'=>$request->meta_keyword,
@@ -133,17 +145,19 @@ class AboutController extends Controller
         ]);
        }
 
-       return redirect()->route('about.index');
+       return redirect()->route('industry.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\industry  $industry
      * @return \Illuminate\Http\Response
      */
-    public function destroy(About $about)
+    public function destroy(industry $industry)
     {
-        //
+        $industry->delete();
+
+        return redirect()->route('industry.index');
     }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\About;
+use App\Models\Feature;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class FeatureController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $abouts= About::Paginate(1);
+        $feature= feature::Paginate(2);
 
-        return view('Admin.About.edit',compact('abouts'));
+        return view('Admin.Feature.index',compact('feature'));
     }
 
     /**
@@ -27,7 +27,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        return view('admin.about.create');
+        return view('Admin.Feature.create');
     }
 
     /**
@@ -40,7 +40,7 @@ class AboutController extends Controller
     {
         $request->validate([
             'title'=>'required|max:255',
-            'mobile_no'=>'required|digits:10',
+            'heading'=>'required|max:255',
             'description'=>'required',
             'meta_title'=>'required|max:255',
             'meta_keyword'=>'required',
@@ -51,9 +51,9 @@ class AboutController extends Controller
         $image1=time().'.'.$request->image->extension();
         $request->image->move(public_path('admin/images'),$image1);
 
-        about::create([
+        feature::create([
             'title'=>$request->title,
-            'mobile_no'=>$request->mobile_no,
+            'heading'=>$request->heading,
             'description'=>$request->description,
             'meta_title'=>$request->meta_title,
             'meta_keyword'=>$request->meta_keyword,
@@ -61,16 +61,16 @@ class AboutController extends Controller
             'image'=>$image1,
         ]);
 
-        return redirect()->route('about.index');
+        return redirect()->route('feature.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Feature  $feature
      * @return \Illuminate\Http\Response
      */
-    public function show(About $about)
+    public function show(Feature $feature)
     {
         //
     }
@@ -78,26 +78,31 @@ class AboutController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Feature  $feature
      * @return \Illuminate\Http\Response
      */
-    public function edit(About $about)
+    public function edit(Feature $feature)
     {
-        //
+        if (empty($feature)) {
+            return redirect()->route('feature.index');
+        }
+        else {
+            return view ('Admin.Feature.edit',compact('feature'));
+        }
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Feature  $feature
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, About $about)
+    public function update(Request $request, Feature $feature)
     {
         $request->validate([
             'title'=>'required|max:255',
-            'mobile_no'=>'required|digits:10',
+            'heading'=>'required|max:255',
             'description'=>'required',
             'meta_title'=>'required|max:255',
             'meta_keyword'=>'required',
@@ -107,9 +112,9 @@ class AboutController extends Controller
         ]);
         if (empty($request->image)) {
 
-            $about->update([
+            $feature->update([
                 'title'=>$request->title,
-                'mobile_no'=>$request->mobile_no,
+                'heading'=>$request->heading,
                 'description'=>$request->description,
                 'meta_title'=>$request->meta_title,
                 'meta_keyword'=>$request->meta_keyword,
@@ -122,9 +127,9 @@ class AboutController extends Controller
         $image1=time().'.'.$request->image->extension();
         $request->image->move(public_path('admin/images'),$image1);
 
-        $about->update([
+        $feature->update([
             'title'=>$request->title,
-            'mobile_no'=>$request->mobile_no,
+            'heading'=>$request->heading,
             'description'=>$request->description,
             'meta_title'=>$request->meta_title,
             'meta_keyword'=>$request->meta_keyword,
@@ -133,17 +138,19 @@ class AboutController extends Controller
         ]);
        }
 
-       return redirect()->route('about.index');
+       return redirect()->route('feature.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Feature  $feature
      * @return \Illuminate\Http\Response
      */
-    public function destroy(About $about)
+    public function destroy(Feature $feature)
     {
-        //
+        $feature->delete();
+
+        return redirect()->route('feature.index');
     }
 }

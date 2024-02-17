@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class About extends Model
+class Feature extends Model
 {
     use HasFactory;
 
-    protected $table = "abouts";
+    protected $table = 'features';
 
-    protected $primarykey = "id";
+    protected $primarykey = 'id';
 
     protected $fillable = ['title',
-    'mobile_no',
+    'heading',
     'image',
     'description',
     'meta_title',

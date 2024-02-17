@@ -12,7 +12,7 @@
             <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            <a href="#" class="d-block">Abhijit Elbhar</a>
         </div>
     </div>
     
@@ -39,58 +39,98 @@
             </li>
             
             <li class="nav-item">
+                <a href="{{route('slider.index')}}" class="nav-link">
+                    <i class="fas fa-images nav-icon"></i>
+                    <p>Slider</p>
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="{{route('tester.index')}}" class="nav-link">
+                    <i class="fas fa-users nav-icon"></i>
+                    <p>Tester</p>
+                </a>
+            </li>
+            
+            <li class="nav-item">
                 <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-table"></i>
+                    <i class="nav-icon fas fa-chart-pie"></i>
                     <p>
-                        Tables
+                        Industry
                         <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
-                <ul class="nav nav-treeview">
+                <ul class="nav nav-treeview">  
                     <li class="nav-item">
-                        <a href="pages/tables/simple.html" class="nav-link">
+                        <a href="{{route('industry_category.index')}}" class="nav-link">
                             <i class="nav-icon"></i>
-                            <p>Simple Tables</p>
+                            <p>Industry Category</p>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{{route('industry.index')}}" class="nav-link">
+                            <i class="nav-icon"></i>
+                            <p>Industry</p>
+                        </a>
+                    </li>
+                </ul>
+            </li> 
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-tools"></i>
+                    <p>
+                        Website setting
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">                  
+                    <li class="nav-item">
+                        <a href="{{route('feature.index')}}" class="nav-link">
+                            <i class="nav-icon"></i>
+                            <p>Software Feature</p>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{{route('faq.index')}}" class="nav-link">
+                            <i class="nav-icon"></i>
+                            <p>FAQ</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/tables/data.html" class="nav-link">
+                        <a href="{{route('knowledge-base.index')}}" class="nav-link">
                             <i class="nav-icon"></i>
-                            <p>DataTables</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/tables/jsgrid.html" class="nav-link">
-                            <i class="nav-icon"></i>
-                            <p>jsGrid</p>
+                            <p>Knowledge Base</p>
                         </a>
                     </li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                    <i class="fas fa-user-plus nav-icon"></i>
-                    <p>Simple Tables1</p>
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-user-plus"></i>
+                    <p>
+                        Administration
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
                 </a>
-            </li>
-            <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Simple Tables2</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Simple Tables3</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Simple Tables4</p>
-                </a>
-            </li>    
+                <ul class="nav nav-treeview">  
+                    <li class="nav-item">
+                        <a href="{{route('detail.index')}}" class="nav-link">
+                            <i class="nav-icon"></i>
+                            <p>Details</p>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{{route('about.index')}}" class="nav-link">
+                            <i class="nav-icon"></i>
+                            <p>About Us</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>   
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

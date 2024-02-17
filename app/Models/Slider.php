@@ -5,19 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class About extends Model
+class Slider extends Model
 {
     use HasFactory;
 
-    protected $table = "abouts";
+    protected $table = 'sliders';
 
-    protected $primarykey = "id";
+    protected $primarykey = 'id';
 
     protected $fillable = ['title',
-    'mobile_no',
+    'url',
     'image',
-    'description',
-    'meta_title',
-    'meta_keyword',
-    'meta_description'];
+    'description'];
 }

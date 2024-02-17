@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class About extends Model
+class base extends Model
 {
     use HasFactory;
+    
+    protected $table = 'bases';
 
-    protected $table = "abouts";
-
-    protected $primarykey = "id";
+    protected $primarykey = 'id';
 
     protected $fillable = ['title',
-    'mobile_no',
-    'image',
     'description',
     'meta_title',
     'meta_keyword',
