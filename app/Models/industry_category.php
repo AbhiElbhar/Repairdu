@@ -16,6 +16,6 @@ class industry_category extends Model
     protected $fillable = ['name'];
 
     function Industry(){
-        return $this->hasMany('App\models\industry_category','category_id','id');
+        return $this->hasMany('App\models\industry','category_id','id');
     }
 }

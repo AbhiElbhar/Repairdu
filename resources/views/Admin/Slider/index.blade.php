@@ -21,18 +21,18 @@
                 
                 <td><img src="{{asset('Admin/images/'.$value->image)}}" class="rounded-cricle" width="50" height="50"/></td>
                 
-                <td><a href="{{route('slider.edit',$value->id)}}"><button class="btn btn-primary">Edit</button></td>
-                    
-                    <td><form action="{{route('slider.destroy',$value->id)}}" class= "action" method="POST"> @csrf  @method('DELETE') <button class="btn btn-danger">Delete</button></form></td>
-                </tr>
-                @endforeach
-                @else
-                <tr>
-                    <td colspan="4">There are no data.</td>
-                </tr>
-                @endif
-            </tbody>
-        </table>
-        {!! $slider->links() !!}  
-    </div>
-    @endsection
+                <td><a href="{{route('slider.edit',$value->id)}}"><button class="btn btn-primary">Edit</button></a></td>
+                
+                <td><form action="{{route('slider.destroy',$value->id)}}" class= "action" method="POST"> @csrf  @method('DELETE') <button class="btn btn-danger">Delete</button></form></td>
+            </tr>
+            @endforeach
+            @else
+            <tr>
+                <td colspan="4">There are no data.</td>
+            </tr>
+            @endif
+        </tbody>
+    </table>
+    {!! $slider->links() !!}  
+</div>
+@endsection

@@ -8,17 +8,25 @@
         </div>
         <div class="col-lg-4">
             <div class="footer-one-left">
+                @foreach ($details as $item)
+
                 <a class="logo" href="#">
-                    <img src="assets/images/logo/logo-2.svg" alt="Logo_image" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                    <img src="{{asset('Admin/images/'.$item->logo)}}" alt="Logo_image" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                 </a>
                 <p class="disc" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                    Tempus nula rhoncus euismod curae masa cras justo, quisque semper molestie primis porttitor mus tempor dapibus
+                   {{$item->address}}
                 </p>
+                                            
+                @endforeach
                 <ul class="social-area">
-                    <li data-sal-delay="150" data-sal="slide-up" data-sal-duration="800"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li data-sal-delay="250" data-sal="slide-up" data-sal-duration="800"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li data-sal-delay="350" data-sal="slide-up" data-sal-duration="800"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li data-sal-delay="450" data-sal="slide-up" data-sal-duration="800"><a href="#"><i class="fab fa-skype"></i></a></li>
+                    @foreach ($social_media as $item)
+
+                    <li data-sal-delay="150" data-sal="slide-up" data-sal-duration="800" class="sal-animate"><a href="{{$item->facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                    <li data-sal-delay="250" data-sal="slide-up" data-sal-duration="800" class="sal-animate"><a href="{{$item->twitter}}"><i class="fab fa-twitter"></i></a></li>
+                    <li data-sal-delay="350" data-sal="slide-up" data-sal-duration="800" class="sal-animate"><a href="{{$item->linkedin}}"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li data-sal-delay="450" data-sal="slide-up" data-sal-duration="800" class="sal-animate"><a href="{{$item->instagram}}"><i class="fab fa-instagram"></i></a></li>
+                                        
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -26,14 +34,14 @@
             <div class="footer-right-one">
                 <div class="single-wized-footer">
                     <h5 class="title-heading" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        Services
+                        Software Features
                     </h5>
                     <ul class="list">
-                        <li data-sal-delay="150" data-sal="slide-up" data-sal-duration="800"><a href="service-details.html">Branding Design</a></li>
-                        <li data-sal-delay="250" data-sal="slide-up" data-sal-duration="800"><a href="service-details.html">Website Development</a></li>
-                        <li data-sal-delay="350" data-sal="slide-up" data-sal-duration="800"><a href="service-details.html">App Design</a></li>
-                        <li data-sal-delay="450" data-sal="slide-up" data-sal-duration="800"><a href="service-details.html">Digital Marketing</a></li>
-                        <li data-sal-delay="550" data-sal="slide-up" data-sal-duration="800"><a href="service-details.html">Product Development</a></li>
+                        @foreach ($feature as $item)
+
+                        <li data-sal-delay="150" data-sal="slide-up" data-sal-duration="800"><a href="{{route('feature',$item->title)}}">{{$item->title}}</a></li>
+                            
+                        @endforeach
                     </ul>
                 </div>
                 <div class="single-wized-footer">
@@ -41,10 +49,9 @@
                         Resourses
                     </h5>
                     <ul class="list">
-                        <li data-sal-delay="150" data-sal="slide-up" data-sal-duration="800"><a href="blog-list.html">Blog</a></li>
-                        <li data-sal-delay="250" data-sal="slide-up" data-sal-duration="800"><a href="portfolio.html">Case Study</a></li>
-                        <li data-sal-delay="350" data-sal="slide-up" data-sal-duration="800"><a href="portfolio.html">Portfolio</a></li>
-                        <li data-sal-delay="450" data-sal="slide-up" data-sal-duration="800"><a href="team.html">Team pages</a></li>
+                        <li data-sal-delay="150" data-sal="slide-up" data-sal-duration="800"><a href="{{route('knowledge_base')}}">Knowledge Base</a></li>
+                        <li data-sal-delay="250" data-sal="slide-up" data-sal-duration="800"><a href="{{route('faq')}}">FAQs</a></li>
+                        <li data-sal-delay="350" data-sal="slide-up" data-sal-duration="800"><a href="{{route('industry_category')}}">Industries</a></li>
                     </ul>
                 </div>
                 <div class="single-wized-footer">
@@ -52,9 +59,8 @@
                         Support
                     </h5>
                     <ul class="list">
-                        <li data-sal-delay="150" data-sal="slide-up" data-sal-duration="800"><a href="contactus.html">Contact</a></li>
-                        <li data-sal-delay="250" data-sal="slide-up" data-sal-duration="800"><a href="#">Privacy Policy</a></li>
-                        <li data-sal-delay="350" data-sal="slide-up" data-sal-duration="800"><a href="#">Terms of Use</a></li>
+                        <li data-sal-delay="150" data-sal="slide-up" data-sal-duration="800"><a href="{{route('contact')}}">Contact Us</a></li>
+                        <li data-sal-delay="250" data-sal="slide-up" data-sal-duration="800"><a href="{{route('policy')}}">Privacy & Terms</a></li>
                     </ul>
                 </div>
             </div>

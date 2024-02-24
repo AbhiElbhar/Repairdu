@@ -21,18 +21,18 @@
                 
                 <td>{{$value->position}}</td>
                 
-                <td><a href="{{route('tester.edit',$value->id)}}"><button class="btn btn-primary">Edit</button></td>
-                    
+                <td><a href="{{route('tester.edit',$value->id)}}"><button class="btn btn-primary">Edit</button></a></td>
+                
                 <td><form action="{{route('tester.destroy',$value->id)}}" class= "action" method="POST"> @csrf  @method('DELETE') <button class="btn btn-danger">Delete</button></form></td>
-                </tr>
-                @endforeach
-                @else
-                <tr>
-                    <td colspan="4">There are no data.</td>
-                </tr>
-                @endif
-            </tbody>
-        </table>
-        {!! $tester->links() !!}  
-    </div>
-    @endsection
+            </tr>
+            @endforeach
+            @else
+            <tr>
+                <td colspan="4">There are no data.</td>
+            </tr>
+            @endif
+        </tbody>
+    </table>
+    {!! $tester->links() !!}  
+</div>
+@endsection

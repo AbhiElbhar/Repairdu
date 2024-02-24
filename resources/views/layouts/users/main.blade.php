@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @foreach ($details as $item)
+    {{-- <link rel="icon" href="{{asset('Admin/image/'.$item->favicon)}}" type="image/png" sizes="16x16" /> --}}
+    <link rel="icon" type="image/x-icon" href="{{asset('Admin/images/'.$item->favicon)}}">
+      
+    @endforeach
     <title>Axela Creative Agenacy & Portfolio HTML Template </title>
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png')}}">
     <link rel="stylesheet" href="{{asset('users/assets/css/plugins/swiper.min.css')}}">
     <link rel="stylesheet" href="{{asset('users/assets/css/plugins/fontawesome-5.css')}}">
     <link rel="stylesheet" href="{{asset('users/assets/css/plugins/unicons.css')}}">
@@ -16,6 +20,7 @@
     <link rel="stylesheet" href="{{asset('users/assets/css/plugins/hover-revel.css')}}">
     <link rel="stylesheet" href="{{asset('users/assets/css/plugins/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('users/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('users/assets/css/style1.css')}}">
 </head>
 
 <body>
@@ -48,15 +53,15 @@
                 <div class="col-12">
                     <div class="copyu-right-wrapper">
                         <div class="left single">
-                            <a href="#">Privacy & Terms.</a>
-                            <a href="#" class="ml--20">Contact Us</a>
+                            <a href="{{route('policy')}}">Privacy & Terms.</a>
+                            <a href="{{route('contact')}}" class="ml--20">Contact Us</a>
                         </div>
                         <div class="left single">
-                            <p>Copyright @2022 Axela. by <a href="#">ReacThemes</a></p>
+                            <p>Copyright @2022 Repairdu. by <a href="#">Abhijit Elbhar</a></p>
                         </div>
                         <div class="left single">
-                            <a href="#">About Us</a>
-                            <a href="#" class="ml--20">Blog</a>
+                            <a href="{{route('about')}}">About Us</a>
+                            <a href="{{route('knowledge_base')}}" class="ml--20">Knowledge Base</a>
                         </div>
                     </div>
                 </div>

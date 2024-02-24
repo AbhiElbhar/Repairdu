@@ -21,7 +21,7 @@
                 
                 <td> {{$value->answer}} </td>
                 
-                <td><a href="{{route('faq.edit',$value->id)}}"><button class="btn btn-primary">Edit</button></td>
+                <td><a href="{{route('faq.edit',$value->id)}}"><button class="btn btn-primary">Edit</button></a></td>
                     
                     <td><form action="{{route('faq.destroy',$value->id)}}" class= "action" method="POST"> @csrf  @method('DELETE') <button class="btn btn-danger">Delete</button></form></td>
                 </tr>

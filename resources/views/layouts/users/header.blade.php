@@ -2,11 +2,11 @@
     <div class="row align-items-center">
         <div class="col-lg-2 col-md-3 col-4">
             <!-- logo area start -->
-            <a href="index.html" class="thumbnail">
+            <a href="{{route('index')}}" class="thumbnail">
                 @foreach ($details as $item)
 
                 <img class="active-light" src="{{asset('Admin/images/'.$item->logo)}}" alt="axela-logo">
-                <img class="active-dark" src="{{asset('Admin/images/'.$item->logo)}}" alt="axela-logo">
+                <img class="active-dark" src="{{asset('Admin/images/'.$item->favicon)}}" alt="axela-logo">
                                     
                 @endforeach
             </a>
@@ -20,60 +20,23 @@
                             <a href="{{route('index')}}">Home</a>
                         </li>
                         <li>
-                            <a href="about.html">About</a>
+                            <a href="{{route('about')}}">About</a>
                         </li>
                         <li class="has-droupdown">
-                            <a href="#">Services</a>
+                            <a href="#">Software Features</a>
                             <ul class="submenu">
-                                <li><a class="single" href="service.html">Our Services</a></li>
-                                <li><a class="single" href="service-details.html">Service Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-droupdown">
-                            <a href="#">Pages</a>
-                            <ul class="submenu home-mega home-mega2">
-                                <li class="m-1">
-                                    <ul class="multiple">
-                                        <li><a class="multi" href="appoinment.html">Appoinment</a></li>
-                                        <li><a class="multi" href="about.html">About Us</a></li>
-                                        <li><a class="multi" href="price-plan.html">Price Plans</a></li>
-                                        <li><a class="multi" href="faq.html">FAQ Page</a></li>
-                                        <li><a class="multi" href="testimonial.html">Testimonial</a></li>
-                                        <li><a class="multi" href="404.html">404 Page</a></li>
-                                    </ul>
-                                </li>
-                                <li class="m-1">
-                                    <ul class="multiple">
-                                        <li><a class="multi" href="portfolio.html">Portfolio Style 1</a></li>
-                                        <li><a class="multi" href="portfolio-style-2.html">Portfolio Style 2</a></li>
-                                        <li><a class="multi" href="portfolio-style-3.html">Portfolio Style 3</a></li>
-                                        <li><a class="multi" href="portfolio-style-4.html">Portfolio Style 4</a></li>
-                                        <li><a class="multi" href="portfolio-style-5.html">Portfolio Style 5</a></li>
-                                        <li><a class="multi" href="project-details.html">Portfolio Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="m-1">
-                                    <ul class="multiple last">
-                                        <li><a class="multi" href="team.html">Team Style 1</a></li>
-                                        <li><a class="multi" href="team-style-2.html">Team Style 2</a></li>
-                                        <li><a class="multi" href="team-style-3.html">Team Style 3</a></li>
-                                        <li><a class="multi" href="team-style-4.html">Team Style 4</a></li>
-                                        <li><a class="multi" href="team-style-5.html">Team Style 5</a></li>
-                                        <li><a class="multi" href="team-details.html">Team Details</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-droupdown">
-                            <a href="#">Blog</a>
-                            <ul class="submenu">
-                                <li><a class="single" href="blog-list.html">Blog List</a></li>
-                                <li><a class="single" href="blog-grid.html">Blog Grid</a></li>
-                                <li><a class="single" href="blog-details.html">Blog Details</a></li>
+                                @foreach ($feature as $item)
+
+                                <li><a class="single" href="{{route('feature',$item->title)}}">{{$item->title}}</a></li>
+                                
+                                @endforeach
                             </ul>
                         </li>
                         <li>
-                            <a href="contactus.html">Contact</a>
+                            <a href="{{route('pricing')}}">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="{{route('contact')}}">Contact Us</a>
                         </li>
                     </ul>
                 </nav>
@@ -81,7 +44,9 @@
         </div>
         <div class="col-xl-3 col-lg-10 col-md-9 col-8">
             <div class="header-right">
-                @if (Route::has('login'))
+
+                <a href="{{route('register')}}" class="rts-btn btn-secondary" style="width: 150px; background-color: lightgrey;">Get Started</a>
+                {{-- @if (Route::has('login'))
                     @auth
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle rts-btn btn-secondary call-btn" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -107,7 +72,7 @@
                             <a href="{{ route('register') }}" class="rts-btn btn-secondary login-btn">Register</a>
                         @endif
                     @endauth
-                @endif
+                @endif --}}
 
                 {{-- <a href="#" class="rts-btn btn-secondary call-btn">Let’s Talk
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">

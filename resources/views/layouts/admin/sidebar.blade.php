@@ -32,7 +32,7 @@
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a href="{{route('dashboard')}}" class="nav-link">
+                <a href="{{route('register.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>Dashboard</p>
                 </a>
@@ -51,7 +51,14 @@
                     <p>Tester</p>
                 </a>
             </li>
-            
+
+            <li class="nav-item">
+                <a href="{{route('contact.index')}}" class="nav-link">
+                    <i class="fas fa-users nav-icon"></i>
+                    <p>Contact Us</p>
+                </a>
+            </li>
+
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-chart-pie"></i>
@@ -100,13 +107,40 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('knowledge-base.index')}}" class="nav-link">
+                        <a href="{{route('knowledge_base.index')}}" class="nav-link">
                             <i class="nav-icon"></i>
                             <p>Knowledge Base</p>
                         </a>
                     </li>
                 </ul>
             </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-chart-pie"></i>
+                    <p>
+                        Pricing
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">  
+                    <li class="nav-item">
+                        <a href="{{route('pricing.index')}}" class="nav-link">
+                            <i class="nav-icon"></i>
+                            <p>pricing</p>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{{route('pricing.create')}}" class="nav-link">
+                            <i class="nav-icon"></i>
+                            <p>Add Pricing</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-user-plus"></i>
@@ -129,6 +163,21 @@
                             <p>About Us</p>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="{{route('social_media.index')}}" class="nav-link">
+                            <i class="nav-icon"></i>
+                            <p>Social Media Links</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{route('policy.index')}}" class="nav-link">
+                            <i class="nav-icon"></i>
+                            <p>Privacy & Terms.</p>
+                        </a>
+                    </li>
+
                 </ul>
             </li>   
         </ul>

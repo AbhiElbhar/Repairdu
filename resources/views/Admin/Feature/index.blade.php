@@ -21,7 +21,7 @@
                 
                 <td><img src="{{asset('Admin/images/'.$value->image)}}" class="rounded-cricle" width="50" height="50"/></td>
                 
-                <td><a href="{{route('feature.edit',$value->id)}}"><button class="btn btn-primary">Edit</button></td>
+                <td><a href="{{route('feature.edit',$value->id)}}"><button class="btn btn-primary">Edit</button></a></td>
                     
                     <td><form action="{{route('feature.destroy',$value->id)}}" class= "action" method="POST"> @csrf  @method('DELETE') <button class="btn btn-danger">Delete</button></form></td>
                 </tr>
