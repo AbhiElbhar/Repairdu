@@ -31,26 +31,11 @@
     <link rel="stylesheet" href="{{asset('admin/plugins/summernote/summernote-bs4.min.css')}}">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-    tinymce.init({
-        selector: 'textarea.summernote',
-        height: 250,
-        branding: true, // Enable branding
-        plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table paste code help wordcount'
-        ],
-        toolbar: 'undo redo | formatselect | ' +
-            'bold italic backcolor | alignleft aligncenter ' +
-            'alignright alignjustify | bullist numlist outdent indent | ' +
-            'removeformat | help',
-        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-    });
-</script>
+    <link href="{{asset('admin/summernote.min.css')}}" rel="stylesheet">
+    <link href="{{asset('admin/summernote-lite.min.css')}}" rel="stylesheet">
+   
 
-<link rel="stylesheet" href="{{asset('admin/dist/style.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/dist/style.css')}}">
 
 
 </head>
@@ -116,5 +101,13 @@
     <script src="{{asset('admin/dist/js/demo.js')}}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script>
+
+    <script src="{{asset('admin/summernote-lite.min.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+            $(".summernote").summernote({height:250});
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
 </body>
 </html>

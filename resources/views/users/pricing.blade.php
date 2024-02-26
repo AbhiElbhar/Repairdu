@@ -3,7 +3,7 @@
 
 @section('content')
 {{-- <div id="btn-abhi"> --}}
-<div id="btn-abhi">
+{{-- <div id="btn-abhi"> --}}
 <!-- start breadcrumb area -->
 <div class="rts-breadcrumb-area breadcrumb-bg bg_image">
     <div class="container">
@@ -22,7 +22,7 @@
     </div>
 </div>
 <!-- end breadcrumb area -->
-</div>
+
 
 
 
@@ -251,7 +251,7 @@
     </div>
 </div>
 {{-- </div> --}}
-
+{{-- </div> --}}
 <script src="{{asset('users/assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('users/assets/js/jquery.min.js')}}"></script>
 {{-- <script src="https://repairdu.com/public/backend/assets/js/scripts.js?v=2.0"></script>  --}}
@@ -260,11 +260,13 @@
 
 
 <script>
-    $(document).on('mousemove','#btn-abhi',function(){
-        $(".monthly-package").fadeIn(500);
+    $(document).ready(function(){
+        $(window).on('load', function(){
+        $(".monthly-package").fadeIn(800);
         $(".yearly-package").css('display','none');
         $(this).removeClass('btn-outline-info').addClass('btn-primary');
         $('#btn-yearly').removeClass('btn-primary').addClass('btn-outline-info');
+        });
     });
     $(document).on('click','#btn-monthly',function(){
         $(".monthly-package").fadeIn(800);

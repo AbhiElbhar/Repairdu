@@ -11,7 +11,7 @@
         @foreach ($about as $item)
         
         <p class="disc">
-           {{$item->description}}
+           {!!$item->description!!}
         </p>
         
         @endforeach
@@ -55,7 +55,7 @@
                 <!-- single -->
                 <div class="single">
                     <i class="fas fa-map-marker-alt"></i>
-                    <a href="#">{{$item->address}}</a>
+                    <a href="#">{!!$item->address!!}</a>
                 </div>
                 <!-- single ENd -->
             </div>

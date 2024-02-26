@@ -29,7 +29,7 @@
                 <div class="rts-quote-area text-center">
                     <h4>Privacy Policy</h4>
                     <p class="disc para-1">
-                    {{$item->policy}}
+                    {!!$item->policy!!}
                     </p>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                 <div class="rts-quote-area text-center">
                     <h4>Terms & Condition</h4>
                     <p class="disc para-1">
-                    {{$item->terms}}
+                    {!!$item->terms!!}
                     </p>
                 </div>
             </div>

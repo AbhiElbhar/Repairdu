@@ -30,7 +30,7 @@
                 <div class="rts-quote-area text-center">
                      <h5 class="title">{{$item->position}}</h5>
                     <p class="disc para-1">
-                    {{$item->description}}
+                    {!!$item->description!!}
                     </p>
                 </div>
             </div>

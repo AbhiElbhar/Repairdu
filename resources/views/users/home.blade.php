@@ -14,7 +14,7 @@
                         {{$item->title}}
                     </h1>
                     <p class="banner-disc" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                        {{$item->description}}
+                        {!!$item->description!!}
                     </p>
                     <div class="banner-wrapper button" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
                         <a href="#" class="rts-btn btn-primary">Get Started</a>
@@ -96,7 +96,7 @@
                         </h3>
                     </div>
                     <p class="disc" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                        {{$item->description}}
+                        {!!$item->description!!}
                     </p>
                     <div class="button-area" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
                         <a href="{{route('about')}}" class="rts-btn btn-primary">More About Us</a>
@@ -135,7 +135,7 @@
                         </h5>
                     </a>
                     <p class="disc">
-                        {{substr($item->description,0,95).'....'}}
+                        {!!substr($item->description,0,95).'....'!!}
                     </p>
                     <a href="{{route('feature',$item->title)}}" class="rts-read-more">Learn More<i class="far fa-chevron-double-right"></i></a>
                 </div>
@@ -163,7 +163,7 @@
                                         In Your Mind?
                                     </h3>
                                     <p class="disc" data-sal-delay="350" data-sal="slide-up" data-sal-duration="800">
-                                        <h4 class="title" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">{{$item->address}}</h4>
+                                        <h4 class="title" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">{!!$item->address!!}</h4>
                                     </p>
                                     <div class="communicate-area" data-sal-delay="450" data-sal="slide-up" data-sal-duration="800">
                                         <img src="{{asset('users/assets/images/appoinment/icon/01.svg')}}" alt="creative_icon">
@@ -284,7 +284,7 @@
                                         </div>
                                         <div class="body">
                                             <p class="disc">
-                                               {{substr($item->description,0,200).'....'}}
+                                               {!!substr($item->description,0,200).'....'!!}
                                             </p>
                                         </div>
                                         <div class="footer">

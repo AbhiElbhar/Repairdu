@@ -33,7 +33,7 @@
                 <div class="rts-quote-area text-center">
                     <!-- <h5 class="title">“Getting Started With Repairdu”</h5>-->
                     <p class="disc para-1">
-                    {{$item->description}}
+                    {!!$item->description!!}
                     </p>
                 </div>
             </div>

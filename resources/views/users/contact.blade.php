@@ -80,7 +80,7 @@
                         <div class="info">
                             <span>Service Station</span>
                             <a href="#">
-                                <h5>{{$item->address}}</h5>
+                                <h5>{!!$item->address!!}</h5>
                             </a>
                         </div>
                     </div>

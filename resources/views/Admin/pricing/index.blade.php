@@ -228,6 +228,14 @@
     <!-- Custom JS -->
     
     <script>
+        $(document).ready(function(){
+            $(window).on('load', function(){
+            $(".monthly-package").fadeIn(800);
+            $(".yearly-package").css('display','none');
+            $(this).removeClass('btn-outline-info').addClass('btn-primary');
+            $('#btn-yearly').removeClass('btn-primary').addClass('btn-outline-info');
+            });
+        });
         $(document).on('click','#btn-monthly',function(){
             $(".monthly-package").fadeIn(800);
             $(".yearly-package").css('display','none');
