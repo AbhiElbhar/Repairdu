@@ -2,8 +2,6 @@
 @extends('layouts.users.main')
 
 @section('content')
-{{-- <div id="btn-abhi"> --}}
-{{-- <div id="btn-abhi"> --}}
 <!-- start breadcrumb area -->
 <div class="rts-breadcrumb-area breadcrumb-bg bg_image">
     <div class="container">
@@ -286,9 +284,11 @@
 </script>
 
 
-
-
-
 @endsection 
 
-
+@push('title')
+    @php
+        $pricing = 'Pricing'
+    @endphp
+    {{$pricing}}
+@endpush

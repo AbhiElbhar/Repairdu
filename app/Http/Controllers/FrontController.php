@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\contact;
+use App\Models\counter;
 use App\Models\detail;
 use App\Models\faq;
 use App\Models\Feature;
@@ -29,8 +30,9 @@ class FrontController extends Controller
         $tester = Tester::get();
         $social_media = social_media::get();
         $knowledge_base = knowledge_base::get();
+        $counter = counter::get();
 
-        return view('users.home',compact(['details','slider','about','feature','tester','knowledge_base','social_media']));
+        return view('users.home',compact(['details','slider','about','feature','tester','knowledge_base','social_media','counter']));
     }
 
     public function contact(Request $request){

@@ -54,3 +54,10 @@
 
 @endforeach
 @endsection
+
+@push('title')
+    @php
+        $Privacy = 'Privacy & Terms'
+    @endphp
+    {{$Privacy}}
+@endpush

@@ -55,3 +55,10 @@
 
 
 @endsection
+
+@push('title')
+    @php
+        $base = 'Knowledge Base'
+    @endphp
+    {{$base}}
+@endpush

@@ -89,3 +89,10 @@
 <!-- End service details area -->
 
 @endsection
+
+@push('title')
+    @php
+        $industry = 'industries'
+    @endphp
+    {{$industry}}
+@endpush

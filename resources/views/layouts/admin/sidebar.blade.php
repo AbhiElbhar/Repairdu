@@ -55,6 +55,13 @@
             </li>
 
             <li class="nav-item">
+                <a href="{{route('counter.index')}}" class="nav-link">
+                    <i class="fas fa-users nav-icon"></i>
+                    <p>Counter</p>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-chart-pie"></i>
                     <p>
@@ -180,3 +187,50 @@
     <!-- /.sidebar-menu -->
 </div>
 <!-- /.sidebar -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get all the links in the sidebar
+        var links = document.querySelectorAll('.nav-link');
+    
+        // Loop through each link
+        links.forEach(function(link) {
+            // Add a click event listener to each link
+            link.addEventListener('click', function() {
+                // Remove the 'active' class from all links
+                links.forEach(function(l) {
+                    l.classList.remove('active');
+                });
+                // Add the 'active' class to the clicked link
+                this.classList.add('active');
+    
+                // Store the id or any unique identifier of the clicked link in localStorage
+                localStorage.setItem('activeLink', this.getAttribute('href'));
+    
+                // Remove 'active' class from all parent ul elements
+                var parentULs = this.closest('.nav-treeview');
+                if (parentULs) {
+                    parentULs.parentNode.classList.add('menu-open');
+                    parentULs.parentNode.querySelector('.fas.fa-angle-left.right').classList.add('rotate');
+                }
+            });
+        });
+    
+        // Check if there's a stored active link in localStorage
+        var storedActiveLink = localStorage.getItem('activeLink');
+        if (storedActiveLink) {
+            // Add the 'active' class to the link with the stored active state
+            var activeLink = document.querySelector('.nav-link[href="' + storedActiveLink + '"]');
+            if (activeLink) {
+                activeLink.classList.add('active');
+    
+                // Add 'active' class to the parent ul element
+                var parentUL = activeLink.closest('.nav-treeview');
+                if (parentUL) {
+                    parentUL.parentNode.classList.add('menu-open');
+                    parentUL.parentNode.querySelector('.fas.fa-angle-left.right').classList.add('rotate');
+                }
+            }
+        }
+    });
+    </script>
+    

@@ -45,3 +45,9 @@
 @endforeach
 
 @endsection
+
+@push('title')
+    @foreach ($knowledge_base_title as $item)
+        {{$item->title}}
+    @endforeach
+@endpush

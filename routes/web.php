@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\BaseController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\CounterController;
 use App\Http\Controllers\Admin\DetailController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\FeatureController;
@@ -59,6 +60,7 @@ Route::prefix('/admin')->middleware(['auth','isadmin'])->group(function(){
     Route::resource('/time',TimeController::class);
     Route::resource('/pricing',PricingController::class);
     Route::resource('/register',RegisterController::class);
+    Route::resource('/counter',CounterController::class);
 });
 
 Route::prefix('/')->group(function(){
@@ -75,7 +77,7 @@ Route::prefix('/')->group(function(){
     Route::get('/industry/{id}',[FrontController::class,'industry'])->name('industry');
     Route::get('/policy',[FrontController::class,'policy'])->name('policy');
     Route::get('/pricing',[FrontController::class,'pricing'])->name('pricing');
-    Route::get('/register',[FrontController::class,'register'])->name('register');
+    Route::get('/register3',[FrontController::class,'register'])->name('register3');
     Route::get('/register1/{id1}/{id}',[FrontController::class,'register1'])->name('register1');
     Route::post('/register2',[FrontController::class,'register2'])->name('register.store1');
     Route::get('/tester/{id}',[FrontController::class,'tester'])->name('tester');

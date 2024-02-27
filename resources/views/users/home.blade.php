@@ -45,30 +45,15 @@
         <div class="row">
             <div class="col-12">
                 <div class="counter-up-wrapper-one">
+                    @foreach ($counter as $item)
+
                     <!-- ingle counter -->
                     <div class="counter-single" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        <h2 class="title"><span class="counter plus">5</span></h2>
-                        <p class="disc">Years Of Experience</p>
+                        <h2 class="title"><span class="counter plus">{{$item->counter}}</span></h2>
+                        <p class="disc">{{$item->title}}</p>
                     </div>
-                    <!-- single-counter End -->
-                    <!-- ingle counter -->
-                    <div class="counter-single" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                        <h2 class="title"><span class="counter k-plus">66</span></h2>
-                        <p class="disc">Complete Projects</p>
-                    </div>
-                    <!-- single-counter End -->
-                    <!-- ingle counter -->
-                    <div class="counter-single" data-sal-delay="350" data-sal="slide-up" data-sal-duration="800">
-                        <h2 class="title"><span class="counter plus">29</span></h2>
-                        <p class="disc">Client Satisfied</p>
-                    </div>
-                    <!-- single-counter End -->
-                    <!-- ingle counter -->
-                    <div class="counter-single" data-sal-delay="450" data-sal="slide-up" data-sal-duration="800">
-                        <h2 class="title"><span class="counter plus">150</span></h2>
-                        <p class="disc">Global Award Winning</p>
-                    </div>
-                    <!-- single-counter End -->
+                    <!-- single-counter End -->                        
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -96,7 +81,7 @@
                         </h3>
                     </div>
                     <p class="disc" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                        {!!$item->description!!}
+                        {!! $item->description !!}
                     </p>
                     <div class="button-area" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
                         <a href="{{route('about')}}" class="rts-btn btn-primary">More About Us</a>
@@ -324,7 +309,7 @@
                 <span data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">Let’s work together</span>
                 <h3 class="title" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">Need a successful projects?</h3>
                 <div class="button-area" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
-                    <a href="{{route('register')}}" class="rts-btn btn-primary">Estimate Projects <i class="far fa-chevron-double-right"></i></a>
+                    <a href="{{route('register3')}}" class="rts-btn btn-primary">Estimate Projects <i class="far fa-chevron-double-right"></i></a>
                 </div>
             </div>
         </div>
@@ -334,3 +319,10 @@
 
 
 @endsection
+
+@push('title')
+   @php
+       $home ='Home'
+   @endphp
+   {{$home}}
+@endpush

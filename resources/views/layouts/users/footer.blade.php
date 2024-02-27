@@ -10,7 +10,7 @@
             <div class="footer-one-left">
                 @foreach ($details as $item)
 
-                <a class="logo" href="#">
+                <a class="logo" href="{{route('index')}}">
                     <img src="{{asset('Admin/images/'.$item->logo)}}" alt="Logo_image" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                 </a>
                 <p class="disc" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">

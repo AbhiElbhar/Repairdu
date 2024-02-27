@@ -45,7 +45,7 @@
         <div class="col-xl-3 col-lg-10 col-md-9 col-8">
             <div class="header-right">
 
-                <a href="{{route('register')}}" class="rts-btn btn-secondary" style="width: 150px; background-color: lightgrey;">Get Started</a>
+                <a href="{{route('register3')}}" class="rts-btn btn-secondary" style="width: 150px; background-color: lightgrey;">Get Started</a>
                 {{-- @if (Route::has('login'))
                     @auth
                     <li class="nav-item dropdown">

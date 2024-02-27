@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 breadcrumb-1">
-                <h1 class="title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">Industries</h1>
+                <h1 class="title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">{{$item->name}}</h1>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="bread-tag">
@@ -89,3 +89,9 @@
     
 @endforeach
 @endsection
+
+@push('title')
+    @foreach ($industry as $item)
+        {{$item->name}}
+    @endforeach
+@endpush

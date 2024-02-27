@@ -40,3 +40,9 @@
             
 @endforeach
 @endsection
+
+@push('title')
+    @foreach ($tester as $item)
+        {{$item->name}}
+    @endforeach
+@endpush

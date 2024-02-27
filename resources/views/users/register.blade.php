@@ -69,74 +69,81 @@
                                 <label for="package">Enter package</label>
                                 <select name="package" id="">
                                     @if (!empty($id))
-                                        <option value="{{$id}}">{{$id}}</option> 
-                                        @endif
-                                        <option value=""> -- Select Package -- </option>
-                                        @foreach ($pricing as $value)
-                                        @if ($loop->index == 0)
-                                        @foreach ($value->pricing as $item)
-                                        <option value="{{$item->package}}"> {{$item->package}} </option>                            
-                                        @endforeach                           
-                                        @endif
-                                        @endforeach
-                                    </select>
-                                    <span class="text-danger">
-                                        @error('package')
-                                        {{$message}}
-                                        @enderror
-                                    </span>
-                                </div>
+                                    <option value="{{$id}}">{{$id}}</option> 
+                                    @endif
+                                    <option value=""> -- Select Package -- </option>
+                                    @foreach ($pricing as $value)
+                                    @if ($loop->index == 0)
+                                    @foreach ($value->pricing as $item)
+                                    <option value="{{$item->package}}"> {{$item->package}} </option>                            
+                                    @endforeach                           
+                                    @endif
+                                    @endforeach
+                                </select>
+                                <span class="text-danger">
+                                    @error('package')
+                                    {{$message}}
+                                    @enderror
+                                </span>
                             </div>
-                            <div class="col-8 mb-6">
-                                <div class="form-group">
-                                    <label for="package_type">Enter package Type</label>
-                                    <select name="package_type" id="">
-                                        @if (!empty($id1))
-                                            <option value="{{$id1}}">{{$id1}}</option> 
-                                            @endif
-                                            <option value=""> -- Select Package type -- </option>
-                                            @foreach ($pricing as $value)
-                                            <option value="{{$value->time}}"> {{$value->time}} </option>
-                                            @endforeach
-                                        </select>
-                                        <span class="text-danger">
-                                            @error('package_type')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-8 mb-6">
-                                    <div class="form-group">
-                                        <label for="password">Password</label>
-                                        <input type="password" name="password" placeholder="Your password">
-                                        <span class="text-danger">
-                                            @error('password')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-8 mb-6">
-                                    <div class="form-group">
-                                        <label for="c_password">Comfirm Password</label>
-                                        <input type="password" name="c_password" placeholder="Your comfirm_password">
-                                        <span class="text-danger">
-                                            @error('c_password')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
-                                    </div>
-                                </div>
-                                <div>
-                                <button type="submit" class="rts-btn btn-primary">Register</button>
-                                </div>
-                            </form>
                         </div>
-                    </div>
+                        <div class="col-8 mb-6">
+                            <div class="form-group">
+                                <label for="package_type">Enter package Type</label>
+                                <select name="package_type" id="">
+                                    @if (!empty($id1))
+                                    <option value="{{$id1}}">{{$id1}}</option> 
+                                    @endif
+                                    <option value=""> -- Select Package type -- </option>
+                                    @foreach ($pricing as $value)
+                                    <option value="{{$value->time}}"> {{$value->time}} </option>
+                                    @endforeach
+                                </select>
+                                <span class="text-danger">
+                                    @error('package_type')
+                                    {{$message}}
+                                    @enderror
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-8 mb-6">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" placeholder="Your password">
+                                <span class="text-danger">
+                                    @error('password')
+                                    {{$message}}
+                                    @enderror
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-8 mb-6">
+                            <div class="form-group">
+                                <label for="c_password">Comfirm Password</label>
+                                <input type="password" name="c_password" placeholder="Your comfirm_password">
+                                <span class="text-danger">
+                                    @error('c_password')
+                                    {{$message}}
+                                    @enderror
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="rts-btn btn-primary">Register</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            
         </div>
-        
-        @endsection
+    </div>
+    
+</div>
+
+@endsection
+
+@push('title')
+    @php
+        $register = 'Register'
+    @endphp
+    {{$register}}
+@endpush

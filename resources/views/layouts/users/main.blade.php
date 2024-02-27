@@ -6,11 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @foreach ($details as $item)
-    {{-- <link rel="icon" href="{{asset('Admin/image/'.$item->favicon)}}" type="image/png" sizes="16x16" /> --}}
-    <link rel="icon" type="image/x-icon" href="{{asset('Admin/images/'.$item->favicon)}}">
-      
+    <link rel="icon" type="image/x-icon" href="{{asset('Admin/images/'.$item->favicon)}}">   
     @endforeach
-    <title>Axela Creative Agenacy & Portfolio HTML Template </title>
+    <title>Axela |@stack('title')</title>
     <link rel="stylesheet" href="{{asset('users/assets/css/plugins/swiper.min.css')}}">
     <link rel="stylesheet" href="{{asset('users/assets/css/plugins/fontawesome-5.css')}}">
     <link rel="stylesheet" href="{{asset('users/assets/css/plugins/unicons.css')}}">
@@ -57,7 +55,7 @@
                             <a href="{{route('contact')}}" class="ml--20">Contact Us</a>
                         </div>
                         <div class="left single">
-                            <p>Copyright @2022 Repairdu. by <a href="#">Abhijit Elbhar</a></p>
+                            <p>Copyright @2022 Repairdu. by <a href="{{route('index')}}">Abhijit Elbhar</a></p>
                         </div>
                         <div class="left single">
                             <a href="{{route('about')}}">About Us</a>

@@ -168,3 +168,10 @@
 <!-- conact us form fluid end -->
 
 @endsection
+
+@push('title')
+    @php
+        $contact = 'Contact Us'
+    @endphp
+    {{$contact}}
+@endpush

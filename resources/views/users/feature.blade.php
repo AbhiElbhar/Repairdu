@@ -48,3 +48,8 @@
 </div>
 @endforeach
 @endsection
+@push('title')
+    @foreach ($feature1 as $item)
+    {{$item->title}}    
+    @endforeach
+@endpush

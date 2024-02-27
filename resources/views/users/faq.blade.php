@@ -74,3 +74,10 @@
 <!-- rts faq area end -->
 
 @endsection
+
+@push('title')
+    @php
+        $faq = 'FAQs'
+    @endphp
+    {{$faq}}
+@endpush

@@ -199,7 +199,7 @@
                     Need a successful projects?
                 </h3>
                 <div class="button-area" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
-                    <a href="{{route('register')}}" class="rts-btn btn-primary">Estimate Projects <i class="far fa-chevron-double-right"></i></a>
+                    <a href="{{route('register3')}}" class="rts-btn btn-primary">Estimate Projects <i class="far fa-chevron-double-right"></i></a>
                 </div>
             </div>
         </div>
@@ -281,3 +281,9 @@
 <!-- tart Customer feedback area End -->
 
 @endsection
+
+@push('title')
+    @foreach ($about as $item)
+        {{$item->title}}
+    @endforeach
+@endpush
