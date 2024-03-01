@@ -63,22 +63,22 @@ Route::prefix('/admin')->middleware(['auth','isadmin'])->group(function(){
     Route::resource('/counter',CounterController::class);
 });
 
-Route::prefix('/')->group(function(){
+Route::controller(FrontController::class)->group(function(){
     
-    Route::get('/index',[FrontController::class,'index'])->name('index');
-    Route::post('/contact',[FrontController::class,'contact'])->name('contact.store1');
-    Route::get('/about',[FrontController::class,'about'])->name('about');
-    Route::get('/feature/{id}',[FrontController::class,'feature'])->name('feature');
-    Route::get('/contact',[FrontController::class,'contact1'])->name('contact');
-    Route::get('/knowledge_base',[FrontController::class,'knowledge_base'])->name('knowledge_base');
-    Route::get('/knowledge_base/{id}',[FrontController::class,'knowledge_base_title'])->name('knowledge_base.title');
-    Route::get('/faq',[FrontController::class,'faq'])->name('faq');
-    Route::get('/industry_category',[FrontController::class,'industry_category'])->name('industry_category');
-    Route::get('/industry/{id}',[FrontController::class,'industry'])->name('industry');
-    Route::get('/policy',[FrontController::class,'policy'])->name('policy');
-    Route::get('/pricing',[FrontController::class,'pricing'])->name('pricing');
-    Route::get('/register3',[FrontController::class,'register'])->name('register3');
-    Route::get('/register1/{id1}/{id}',[FrontController::class,'register1'])->name('register1');
-    Route::post('/register2',[FrontController::class,'register2'])->name('register.store1');
-    Route::get('/tester/{id}',[FrontController::class,'tester'])->name('tester');
+    Route::get('/index','index')->name('index');
+    Route::post('/contact','contact')->name('contact.store1');
+    Route::get('/about','about')->name('about');
+    Route::get('/feature/{id}','feature')->name('feature');
+    Route::get('/contact','contact1')->name('contact');
+    Route::get('/knowledge_base','knowledge_base')->name('knowledge_base');
+    Route::get('/knowledge_base/{id}','knowledge_base_title')->name('knowledge_base.title');
+    Route::get('/faq','faq')->name('faq');
+    Route::get('/industry_category','industry_category')->name('industry_category');
+    Route::get('/industry/{id}','industry')->name('industry');
+    Route::get('/policy','policy')->name('policy');
+    Route::get('/pricing','pricing')->name('pricing');
+    Route::get('/register3','register')->name('register3');
+    Route::get('/register1/{id1}/{id}','register1')->name('register1');
+    Route::post('/register2','register2')->name('register.store1');
+    Route::get('/tester/{id}','tester')->name('tester');
 });
