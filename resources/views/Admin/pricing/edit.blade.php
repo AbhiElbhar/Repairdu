@@ -11,13 +11,13 @@
             <label for="time_id">Enter package Time</label>
             <select name="time_id" id="" class="form-control">
                 @foreach ($time as $value)
-                @if ($value->id == $pricing->id)
+                @if ($value->id == $pricing->time_id)
                 <option value="{{$value->id}}">{{$value->time}}</option>
                 @endif
                 @endforeach
                 <option value=""> -- Select Package time -- </option>
                 @foreach ($time as $value)
-                @if ($value->id == $pricing->id)
+                @if ($value->id == $pricing->time_id)
                 @continue
                 @endif
                 <option value="{{$value->id}}"> {{$value->time}} </option>
