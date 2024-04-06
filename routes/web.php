@@ -34,9 +34,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -65,7 +65,7 @@ Route::prefix('/admin')->middleware(['auth','isadmin'])->group(function(){
 
 Route::controller(FrontController::class)->group(function(){
     
-    Route::get('/index','index')->name('index');
+    Route::get('/','index')->name('index');
     Route::post('/contact','contact')->name('contact.store1');
     Route::get('/about','about')->name('about');
     Route::get('/feature/{id}','feature')->name('feature');
